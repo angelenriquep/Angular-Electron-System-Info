@@ -1,0 +1,77 @@
+const {app, BrowserWindow} = require('electron')
+    const url = require("url");
+    const path = require("path");
+    const os = require('os');
+
+    let mainWindow
+
+    function createWindow () {
+      mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+          nodeIntegration: true
+        }
+      })
+
+      mainWindow.loadURL(
+        url.format({
+          pathname: path.join(__dirname, `/dist/index.html`),
+          protocol: "file:",
+          slashes: true
+        })
+      );
+      // Open the DevTools.
+      mainWindow.webContents.openDevTools()
+
+      mainWindow.on('closed', function () {
+        mainWindow = null
+      })
+    }
+
+    app.on('ready', createWindow)
+
+    app.on('window-all-closed', function () {
+      if (process.platform !== 'darwin') app.quit()
+    })
+
+    app.on('activate', function () {
+      if (mainWindow === null) createWindow()
+    })
+
+    const { ipcMain } = require('electron')
+    
+   
+   /** 
+    ipcMain.on('asincrono', (event, arg) => {
+      console.log(arg) // prints "ping"
+      event.reply('asynchronous-reply', 'pong')
+    })
+    */
+    ipcMain.on('get-ostype-info', (event) => {
+      event.returnValue = os.type()
+    })
+
+    ipcMain.on('get-plaform-info', (event) => {
+      event.returnValue = os.platform();
+    })
+
+    ipcMain.on('get-release-info', (event) => {
+      event.returnValue = os.release();
+    })
+
+    ipcMain.on('get-cores-info', (event) => {
+      event.returnValue = os.cpus();
+    })
+    
+    ipcMain.on('get-interfaces-info', (event) => {
+      event.returnValue = os.networkInterfaces();
+    })
+
+    ipcMain.on('get-freeMem-info', (event) => {
+      event.returnValue =  os.freemem();
+    })
+
+    ipcMain.on('get-totalMem-info', (event) => {
+      event.returnValue = os.totalmem();
+    })

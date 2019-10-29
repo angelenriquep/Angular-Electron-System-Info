@@ -1,0 +1,61 @@
+<div class="mat-app-background basic-container">
+  <div class="mat-elevation-z8">
+    <div>
+        <mat-toolbar color="primary">
+          <span>System Info App</span>
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-toolbar>
+        <mat-menu x-position="before" #menu="matMenu">
+          <button mat-menu-item>About</button>
+          <button mat-menu-item>Contact</button>
+        </mat-menu>
+
+        <mat-card>
+          <button mat-raised-button>Cersie Lannister</button>
+          <button mat-raised-button color="primary">Jaime Lannister</button>
+          <button mat-raised-button color="accent">Tyrion Lannister</button>
+        </mat-card>
+        <form class="form-center">
+            <mat-card-title>Operative System</mat-card-title> {{ osType }} 
+            <h4>Platform</h4> {{ platform }} 
+            <h4>Release</h4> {{ relase }}
+
+            <h4>Used Mem: </h4> {{ memPercentage }} 
+            <mat-progress-spinner value=" {{ memPercentage }} "></mat-progress-spinner>
+
+
+            <ul style="list-style: none">
+                <li *ngFor="let net of ethernetList.Ethernet">
+                    <mat-card-title>Address:</mat-card-title> {{ net.address }} 
+                    <h4>Cidr:</h4> {{ net.cidr }} 
+                      <h4>Mac:</h4> {{ net.mac }} 
+                </li> 
+              </ul>  
+
+
+              <ul style="list-style: none">
+                  <li *ngFor="let core of coreList">
+                      <h4> {{ core.model }} </h4> 
+                      <h4> {{ core.speed }} </h4>  
+                  </li>
+                </ul>  
+
+        </form>
+      </div>
+
+
+  
+  
+ 
+
+  
+
+  
+
+  </div>
+
+</div>
+  
+  
