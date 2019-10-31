@@ -1,61 +1,29 @@
-<div class="mat-app-background basic-container">
-  <div class="mat-elevation-z8">
-    <div>
-        <mat-toolbar color="primary">
-          <span>System Info App</span>
-          <button mat-icon-button [mat-menu-trigger-for]="menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-        </mat-toolbar>
-        <mat-menu x-position="before" #menu="matMenu">
-          <button mat-menu-item>About</button>
-          <button mat-menu-item>Contact</button>
-        </mat-menu>
 
-        <mat-card>
-          <button mat-raised-button>Cersie Lannister</button>
-          <button mat-raised-button color="primary">Jaime Lannister</button>
-          <button mat-raised-button color="accent">Tyrion Lannister</button>
-        </mat-card>
+<mat-card>
+  <div class="mat-app-background basic-container">
+    <div class="mat-app-background basic-container">
+      <mat-card-header>
+        <mat-card-title>
+            Operating System Details
+        </mat-card-title>
+      </mat-card-header>
+          
+      <mat-card-content>
         <form class="form-center">
-            <mat-card-title>Operative System</mat-card-title> {{ osType }} 
-            <h4>Platform</h4> {{ platform }} 
-            <h4>Release</h4> {{ relase }}
-
-            <h4>Used Mem: </h4> {{ memPercentage }} 
-            <mat-progress-spinner value=" {{ memPercentage }} "></mat-progress-spinner>
-
-
-            <ul style="list-style: none">
-                <li *ngFor="let net of ethernetList.Ethernet">
-                    <mat-card-title>Address:</mat-card-title> {{ net.address }} 
-                    <h4>Cidr:</h4> {{ net.cidr }} 
-                      <h4>Mac:</h4> {{ net.mac }} 
-                </li> 
-              </ul>  
-
-
-              <ul style="list-style: none">
-                  <li *ngFor="let core of coreList">
-                      <h4> {{ core.model }} </h4> 
-                      <h4> {{ core.speed }} </h4>  
-                  </li>
-                </ul>  
-
+            <h4>System:</h4> 
+            <mat-label> {{ osType }} </mat-label>
         </form>
-      </div>
 
-
-  
-  
- 
-
-  
-
-  
-
+        <h4>Platform:</h4> 
+        <mat-label> {{ platform }}  </mat-label>
+        <h4>Release: </h4> 
+        <mat-label> {{ relase }} </mat-label>
+      </mat-card-content>
+    </div>
   </div>
+</mat-card>
 
-</div>
-  
-  
+    
+
+
+

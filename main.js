@@ -52,12 +52,16 @@ const {app, BrowserWindow} = require('electron')
       event.returnValue = os.type()
     })
 
-    ipcMain.on('get-plaform-info', (event) => {
+    ipcMain.on('get-platform-info', (event) => {
       event.returnValue = os.platform();
     })
 
     ipcMain.on('get-release-info', (event) => {
-      event.returnValue = os.release();
+      if (os.release()) {
+        event.returnValue = os.release();
+      } else if (os.GetVersionExW()) {
+        event.returnValue = os.GetVersionExW()
+      }
     })
 
     ipcMain.on('get-cores-info', (event) => {

@@ -1,5 +1,30 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<app-osinfo></app-osinfo>
+<mat-toolbar color="primary">
+    <span>System Info App</span>
+        <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item>About</button>
+    <button mat-menu-item>Contact</button>
+</mat-menu>
+
+<mat-sidenav-container>
+    <mat-sidenav mode = "side" opened>
+        <mat-nav-list>
+            <a mat-list-item routerLink='/osinfo'> System Info </a>
+            <a mat-list-item routerLink='/meminfo'> Mem Info </a>
+            <a mat-list-item routerLink='/networkinfo'> Core Info </a>
+            <a mat-list-item routerLink='/coreinfo'> Core Info </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+            <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+                        
+
+
 
 
 
