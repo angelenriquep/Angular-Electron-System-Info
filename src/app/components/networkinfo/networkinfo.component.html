@@ -1,27 +1,25 @@
-<mat-card>
-    <div class="mat-app-background basic-container">
-        <div class="mat-app-background basic-container">
-        <mat-card-header>
-            <mat-card-title>
-                Network Interfaces
-            </mat-card-title>
-          </mat-card-header>
-        <mat-card-content>
-  
-            <div *ngFor="let net of ethernetList.Ethernet">
-              <form class="form-center">
-                  <h4>Address:</h4> 
-                  <mat-label> {{ net.address }} </mat-label>
-              </form>
-              
-                  <h4>Cidr:</h4> 
-                  <mat-label> {{ net.cidr }}  </mat-label>
-                  <h4>Mac: </h4> 
-                  <mat-label> {{ net.mac }} </mat-label>
-              
-            </div> 
-     
-        </mat-card-content>
+<mat-grid-list cols="4"  gutterSize="5px">
+    <mat-grid-tile *ngFor="let net of ethernetList.Ethernet">
+    <mat-card>
+      <div class="mat-app-background basic-container">
+          <div class="mat-app-background basic-container">
+          <mat-card-header>
+              <mat-card-title>
+                  Network Interface
+              </mat-card-title>
+            </mat-card-header>
+          <mat-card-content>  
+            <form class="form-center">
+                <h4>Address:</h4> 
+                <mat-label> {{ net.address }} </mat-label>
+            </form>
+            <h4>Cidr:</h4> 
+            <mat-label> {{ net.cidr }}  </mat-label>
+            <h4>Mac: </h4> 
+            <mat-label> {{ net.mac }} </mat-label>
+          </mat-card-content>
+        </div> 
       </div> 
-    </div> 
-  </mat-card>  
+    </mat-card>  
+  </mat-grid-tile>
+</mat-grid-list>

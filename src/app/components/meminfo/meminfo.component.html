@@ -9,7 +9,7 @@
                 </mat-card-header>
 
                 <mat-card-content>
-                    <h4>Total Available Memory: </h4> {{ totalMem }} GB
+                    <h4>Total Available Memory: </h4> {{ totalMem | number : '1.2-2' }} GB
                     <mat-progress-spinner color="primary" stroke="25" value="100"></mat-progress-spinner> 
                 </mat-card-content>
             </div>
@@ -25,8 +25,8 @@
                     </mat-card-header>
                     
                     <mat-card-content>
-                        <h4>Free Memory: </h4> {{ freeMem }} GB
-                        <h4>Free Memory Percentage: </h4> {{ memPercentageFree }} %
+                        <h4>Free Memory: </h4> {{ freeMem | number : '1.2-2' }} GB
+                        <h4>Free Memory Percentage: </h4> {{ memPercentageFree | number : '1.2-2'}} %
                         <mat-progress-spinner color="accent" stroke="25" value=" {{ memPercentageFree }} "></mat-progress-spinner>
                     </mat-card-content>
                 </div>
@@ -43,8 +43,8 @@
                         </mat-card-header>
                         
                         <mat-card-content>
-                            <h4>Used Memory: </h4> {{ usedMem }} GB
-                            <h4>Used Memory Percentage: </h4> {{ memPercentageUsed }} %
+                            <h4>Used Memory: </h4> {{ usedMem | number : '1.2-2' }} GB
+                            <h4>Used Memory Percentage: </h4> {{ memPercentageUsed | number : '1.2-2' }} %
                             <mat-progress-spinner color="warning" value=" {{ memPercentageUsed }} "></mat-progress-spinner>
                         </mat-card-content>
                     </div>
